@@ -10,7 +10,7 @@ export default function TopBar() {
             <div className="topLeft">
                 <i className="topIcon fa-brands fa-facebook-square"></i>
                 <i className="topIcon fa-brands fa-twitter-square"></i>
-                <i className="topIcon fa-brands fa-github-square"></i>
+                <i  className="topIcon fa-brands fa-github-square"></i>
                 <i className="topIcon fa-brands fa-instagram-square"></i>
             </div>
             <div className="topcenter">
@@ -23,6 +23,9 @@ export default function TopBar() {
                     </li>
                     <li className="topListItem">
                         <Link to="/login" className="Link">Login</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link to="/register" className="Link">Register</Link>
                     </li>
                 </ul>
             </div>

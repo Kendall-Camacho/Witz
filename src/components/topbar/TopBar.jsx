@@ -24,15 +24,6 @@ export default function TopBar() {
                     <li className="topListItem">
                         <Link to="/login" className="Link">Login</Link>
                     </li>
-                    <li className="topListItem">
-                        <Link to="/settings" className="Link">Settings</Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link to="/single" className="Link">SinglePost</Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link to="/register" className="Link">Registro</Link>
-                    </li>
                 </ul>
             </div>
             <div className="topRight">

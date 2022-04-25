@@ -8,8 +8,6 @@ export default function Sidebar() {
                 <img
                     src="https://image.shutterstock.com/image-vector/compact-size-icon-vector-illustration-260nw-489811306.jpg" 
                     alt="" />
-                <img src="https://media.istockphoto.com/photos/big-and-small-picture-id172759822?b=1&k=20&m=172759822&s=170667a&w=0&h=kkmaR2OYuS14rTiEotbzXoBecwnRePNC79Jsgl3M4dY=" alt="" />
-                
                 <p>Estas fotos son auxiliares</p>
             </div>
             <div className="sidebarItem">

@@ -3,12 +3,9 @@ import "./sidebar.css"
 export default function Sidebar() {
     return (
         <div className="sidebar">
-            <div className="sidebarItem">
-                <span className="sidebarTitle">Sobre nosotros</span>
-                <img
-                    src="https://image.shutterstock.com/image-vector/compact-size-icon-vector-illustration-260nw-489811306.jpg" 
-                    alt="" />
-                <p>Estas fotos son auxiliares</p>
+            <div className="mainwv">
+                <h2 className="border">WITZ</h2>
+                <h2 className="wave">WITZ</h2>
             </div>
             <div className="sidebarItem">
                 <span className="sidebarTitle">Categorias</span>

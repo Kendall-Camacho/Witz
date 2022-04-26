@@ -5,7 +5,6 @@ import TopBar from "../../components/topbar/TopBar"
 import "./home.css"
 
 export default function Home() {
-  const user = true;
     return (
       <>
         <TopBar />

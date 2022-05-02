@@ -44,22 +44,22 @@
 }
 
 .registerLoginButton {
-    position: absolute;
-    top: 60px;
-    margin-top: 15px;
-    right: 20px;
+    margin-top: 20px;
+    cursor: pointer;
     background-color: lightcoral;
     border: none;
-    padding: 10px;
     color: white;
     border-radius: 10px;
-    outline: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    
 }
 
-.registerLoginButton:hover {
+/* .registerLoginButton:hover {
     transform: scale(1.1);
     transition: all 0.2s ease-in-out;
-}
+} */
 
 .registerButton:hover {
     transform: scale(1.1);

@@ -50,18 +50,16 @@
 
 
 .loginRegisterButton{
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    margin-top: 15px;
+    margin-top: 20px;
+    cursor: pointer;
     background-color: teal;
     border: none;
-    padding: 10px;
     color: white;
     border-radius: 6px;
+    padding: 10px;
 }
 
-.loginRegisterButton:hover{
+/* .loginRegisterButton:hover{
     transform: scale(1.1);
     transition: all 0.2s ease-in-out;
-}
+} */

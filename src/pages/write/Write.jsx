@@ -16,10 +16,10 @@ export default function Write() {
                   <input type="text" placeholder="Title" className="writeInput" autoFocus={true} />
               </div>
               <div className="writeFormGroup">
-                  <textarea placeholder="Que tienes por contar..." type="text" className="writeInput writeText"
+                  <textarea placeholder="What have to tell us..." type="text" className="writeInput writeText"
                   ></textarea>
               </div>
-              <button className="writeSubmit">Publicar </button>
+              <button className="writeSubmit">Submit</button>
           </form>
       </div>
     </>

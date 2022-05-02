@@ -69,6 +69,7 @@
   justify-content: center;
 }
 
+<<<<<<< HEAD
 .sidebarIcon {
   margin-top: 5%;
   height: 2rem;
@@ -76,6 +77,25 @@
   font-size: 35px;
   margin-left: 10px;
   cursor: pointer;
+=======
+.sidebarIcon{
+    margin-top: 5%;
+    height: 2rem;
+    width: 3rem;
+    font-size: 35px;
+    margin-left: 10px;
+    cursor: pointer;
+} 
+/* Waves Styles */
+.mainwv{
+    display: flex;
+    height: 200px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+>>>>>>> e8ff21366f7e795b31e7507807ab51aff05b4cb3
 }
 
 .mainwv {

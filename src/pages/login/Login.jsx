@@ -23,6 +23,15 @@ export default function Login() {
           <Button classCSS="Register">
             <Link to="/register">Register</Link>
           </Button>
+        <span className="loginTitle">Login</span>
+        <form className="loginForm">
+          <label>Correo electrónico</label>
+          <input type="text" className="loginInput" placeholder="Ingrese su Email" />
+          <label>Contraseña</label>
+          <input type="password" className="loginInput" placeholder="Ingrese su clave" />
+          <button className="loginButton">Iniciar Sesión</button>
+        </form>
+        <button className="loginRegisterButton">Registro</button>
       </div>
     </>
   );

@@ -1,67 +1,65 @@
-.Login{
-    height: calc(100vh - 50px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.5)
-        ),
-        url("https://images.pexels.com/photos/768472/pexels-photo-768472.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-size: cover;
+.Login {
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)),
+    url("https://images.pexels.com/photos/768472/pexels-photo-768472.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
 }
 
-.loginTitle{
-    font-size: 50px;
+.loginTitle {
+  font-size: 50px;
 }
 
-.loginForm{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
+.loginForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.loginForm>label{
-    margin: 10px 0;
+.loginForm>label {
+  margin: 10px 0;
 }
 
-.loginInput{
-    padding: 10px;
-    background-color: white;
-    border: none;
-    outline: none;
+.loginInput {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  outline: none;
 }
 
-.loginButton{
-    margin-top: 20px;
-    cursor: pointer;
-    background-color: lightcoral;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    padding: 10px;
+.loginButton {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: lightcoral;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 10px;
 }
 
-.loginButton:hover{
-    transform: scale(1.1);
-    transition: all 0.2s ease-in-out;
+.loginButton:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
 }
 
 
-.loginRegisterButton{
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    margin-top: 15px;
-    background-color: teal;
-    border: none;
-    padding: 10px;
-    color: white;
-    border-radius: 6px;
+.loginRegisterButton {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  margin-top: 15px;
+  background-color: teal;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 6px;
 }
 
-.loginRegisterButton:hover{
-    transform: scale(1.1);
-    transition: all 0.2s ease-in-out;
+.loginRegisterButton:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
 }

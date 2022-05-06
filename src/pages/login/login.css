@@ -47,6 +47,22 @@
 }
 
 
+
+.loginRegisterButton{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: teal;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* .loginRegisterButton:hover{
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+} */
+
 .loginRegisterButton {
   position: absolute;
   top: 60px;
@@ -63,3 +79,4 @@
   transform: scale(1.1);
   transition: all 0.2s ease-in-out;
 }
+

@@ -4,12 +4,6 @@ import { Link } from "react-router-dom";
 export default function TopBar() {
   return (
     <div className='top'>
-      <div className="topLeft">
-        <i className="topIcon fa-brands fa-facebook-square"></i>
-        <i className="topIcon fa-brands fa-twitter-square"></i>
-        <i className="topIcon fa-brands fa-github-square"></i>
-        <i className="topIcon fa-brands fa-instagram-square"></i>
-      </div>
       <div className="topcenter">
         <ul className="topList">
           <li className="topListItem">
@@ -17,6 +11,9 @@ export default function TopBar() {
           </li>
           <li className="topListItem">
             <Link to="/write" className="Link">Write</Link>
+          </li>
+          <li className="topListItem">
+            <Link to="/Single" className="Link">Single</Link>
           </li>
           <li className="topListItem">
             <Link to="/login" className="Link">Login</Link>

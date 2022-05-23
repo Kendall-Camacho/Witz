@@ -13,7 +13,7 @@ export default function TopBar() {
       <div className="topcenter">
         <ul className="topList">
           <li className="topListItem">
-            <Link to="/home" className="Link">Home</Link>
+            <Link to="/" className="Link">Home</Link>
           </li>
           <li className="topListItem">
             <Link to="/write" className="Link">Write</Link>

@@ -1,28 +1,37 @@
 import "./register.css";
+import Login from "../login/Login";
+import { Link } from "react-router-dom";
 import TopBar from "../../components/topbar/TopBar";
+import Button from "../../components/Button/Button";
+
 export default function Register() {
   return (
     <>
       <TopBar />
       <div className="register">
-        <span className="registerTitle">Registrar Usuario</span>
+        <span className="registerTitle">Register User</span>
         <form className="registerForm">
-          <label>Nombre de usuario</label>
+          <label>Type your username</label>
           <input type="text"
             className="registerInput"
-            placeholder="Nombre de usuario..." />
-          <label>Correo electrónico</label>
+            placeholder="Username..." />
+          <label>Email</label>
           <input type="text"
             className="registerInput"
-            placeholder="Ingrese su Email..." />
-          <label>Contraseña</label>
+            placeholder="Enter your email Please..." />
+          <label>Password...</label>
           <input type="password"
             className="registerInput"
-            placeholder="Ingrese su clave"
+            placeholder="Type your password"
           />
-          <button className="registerButton">Registrarse</button>
+          <Button classCSS="Register">
+            <Link to="/">Register</Link>
+          </Button>
         </form>
-        <button className="registerLoginButton">Login</button>
+
+        <Button classCSS="loginButton">
+          <Link to="/login">Login</Link>
+        </Button>
       </div>
     </>
   );

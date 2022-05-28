@@ -1,7 +1,7 @@
-import "./settings.css"
 import SideBar from "../../components/sidebar/SideBar"
-import TopBar from "../../components/topbar/TopBar"
-export default function Settings() {
+import "./settings.css"
+
+function Settings() {
   return (
     <>
       <TopBar />
@@ -35,3 +35,6 @@ export default function Settings() {
     </>
   )
 }
+
+
+export default Settings

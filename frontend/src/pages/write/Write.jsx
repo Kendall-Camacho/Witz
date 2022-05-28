@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import TopBar from "../../components/topbar/TopBar";
 import "./write.css"
 
 export default function Write() {
@@ -14,7 +13,6 @@ export default function Write() {
   console.log(post);
   return (
     <>
-      <TopBar />
       <div className="write">
         {
           (post.title && post.content && post.image && post.date && post.userName && post.category) ?

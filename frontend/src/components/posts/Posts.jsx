@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
+
 import axios from "axios";
 import "./posts.css";
 
@@ -16,10 +18,12 @@ function Posts() {
   return (
     <div className="posts">
       {posts.map(post => (
-        <div className="post" key={post._id}>
-          <h3>{post.title}</h3>
-          <p>{post.desc}</p>
-          <p>{post.username}</p>
+        <div className="postInfo" key={post._id}>
+          <span className="postTitle">{post.title}</span>
+          <span className="postDesc">{post.desc}</span>
+          <span className="postAuthor">{post.username}</span>
+          <img className="postImg" src="https://images.pexels.com/photos/11740343/pexels-photo-11740343.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+          <span></span>
           <p>
             {
               (post.categories) ? post.categories.map(category => (
@@ -27,6 +31,7 @@ function Posts() {
               )) : "No categories"
             }
           </p>
+          <Link to={`/single/${post._id}`}>Read more</Link>
         </div>
       ))}
     </div>

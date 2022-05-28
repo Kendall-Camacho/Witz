@@ -3,6 +3,8 @@ import Login from "./pages/login/Login";
 import Write from "./pages/write/Write";
 import Register from "./pages/register/Register";
 import Single from "./pages/single/Single";
+import TopBar from "./components/topbar/TopBar";
+
 import { 
   BrowserRouter, 
   Routes, 
@@ -14,14 +16,14 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <TopBar />
         <Routes>
-          <Route>
-            <Route path="/" element={<Home />} />
-            <Route path="write" element={<Write />} />
-            <Route path="login" element={user ? <Home />:<Login />} />
-            <Route path="single" element={<Single />} />
-            <Route path="register" element={user ? <Home/> :<Register />}/>
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/write" element={<Write />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/single" element={<Single />} />
+          <Route path="/single/:id" element={<Single />} />
         </Routes>
       </BrowserRouter>
     </>

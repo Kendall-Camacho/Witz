@@ -1,27 +1,30 @@
-import { Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 import "./singlePost.css"
 
-export default function SinglePost() {
+function SinglePost() {
+
+  const { id } = useParams();
+  const [post, setPost] = useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get(`http://localhost:3001/api/posts/${id}`)
+      setPost(res.data)
+      console.log(res.data)
+    }
+    fetchData()
+  }, [])
+  
   return (
     <div className="singlePost">
-      <div className="singlePostWrapper">
-        <img src="https://images.pexels.com/photos/11391081/pexels-photo-11391081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" className="singlePostImg" />
-        <h1 className="singlePostTitle">English proyect, Kendall & lawrent.
-          <div className="singlePostEdit">
-            <i className="singlePostIcon fa-solid fa-pen-to-square"></i>
-            <i className="singlePostIcon fa-solid fa-trash-can"><Link to="/">link</Link></i>
-          </div>
-        </h1>
-        <div className="singlePostInfo">
-          <span className="singlePostAuthor">Author: <b>Kendall & Lawrent</b></span>
-          <span className="singlePostDate">2 hours ago</span>
-        </div>
-        <p className="singlePostDesc">
-          {/* Insert to post */}
-          In this app everyone can upload info. 
-          {/* Finish section */}
-        </p>
-      </div>
+      <h1>{post.title}</h1>
+      <p>{post.desc}</p>
+      <p>{post.username}</p>
     </div>
   )
 }
+
+
+export default SinglePost

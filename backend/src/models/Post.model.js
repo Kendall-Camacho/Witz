@@ -21,6 +21,10 @@ const PostSchema = new mongoose.Schema({
         type: Array,
         required: false,
     },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    }
 }, { timessamps: true });
 
 module.exports = mongoose.model('Post', PostSchema);

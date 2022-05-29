@@ -12,5 +12,4 @@ app.set('port', process.env.PORT || 3007);
 // routes
 app.use('/api/posts', require('./routes/post.routes'));
 
-
 module.exports = app;

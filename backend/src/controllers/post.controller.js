@@ -42,6 +42,7 @@ async function createPost(req, res) {
     });
   }
 }
+
 module.exports = {
   getAllPosts,
   getPostById,

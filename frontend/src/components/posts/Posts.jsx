@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
-
 import axios from "axios";
 import "./posts.css";
 
@@ -20,18 +19,20 @@ function Posts() {
       {posts.map(post => (
         <div className="postInfo" key={post._id}>
           <span className="postTitle">{post.title}</span>
+          <img className="postImg" src={post.photo ? post.photo : "https://via.placeholder.com/150"} alt="" />
           <span className="postDesc">{post.desc}</span>
-          <span className="postAuthor">{post.username}</span>
-          <img className="postImg" src="https://images.pexels.com/photos/11740343/pexels-photo-11740343.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-          <span></span>
+          <span className="postAuthor">Writed by: {post.userName}</span>
           <p>
             {
               (post.categories) ? post.categories.map(category => (
-                <span >{category.name}</span>
+                <span >{category}</span>
               )) : "No categories"
             }
           </p>
-          <Link to={`/single/${post._id}`}>Read more</Link>
+          
+          <Link className="linkToSingle" to={`/single/${post._id}`}>
+            Read more <i className="fas fa-angle-double-right"></i>
+          </Link>
         </div>
       ))}
     </div>

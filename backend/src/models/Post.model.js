@@ -3,28 +3,28 @@ const mongoose = require('mongoose');
 const PostSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true,
+        required: false
     },
     desc: {
         type: String,
-        required: true,
+        required: false
     },
     photo: {
         type: String,
-        required: false,
+        required: false
     },
-    username: {
+    userName: {
         type: String,
-        required: true,
+        required: false
     },
     categories: {
         type: Array,
-        required: false,
+        required: false
     },
     createdAt: {
         type: Date,
-        default: Date.now,
+        default: Date.now
     }
-}, { timessamps: true });
+}, { timessamps: true }); 
 
 module.exports = mongoose.model('Post', PostSchema);

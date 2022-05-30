@@ -12,8 +12,7 @@ export default function Login() {
     e.preventDefault();
     console.log(userName, password);
   }
-
-  console.log(userName, password);
+  
   return (
     <>
       <div className="Login">

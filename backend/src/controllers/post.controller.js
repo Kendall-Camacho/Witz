@@ -43,6 +43,10 @@ async function createPost(req, res) {
   }
 }
 
+// GET THE DATE OF THE POST
+
+
+
 module.exports = {
   getAllPosts,
   getPostById,

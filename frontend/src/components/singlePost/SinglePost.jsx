@@ -16,19 +16,28 @@ function SinglePost() {
     fetchData()
   }, [])
   
+  if(post.createdAt) post.createdAt = post.createdAt.slice(0,10);
+  
+
   return (
     <div className="singlePost">
-      <img className="singlePostImg" src="https://imgs.search.brave.com/-BIMccSrVTz2KoojJDo-pL_z0_AAQXlyV_AZXfhi65s/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/SjViS1UtUnFUYWtP/STV0aWNIOG1nSGFF/SyZwaWQ9QXBp" alt="" />
-      <h1 className="singlePostTitle">{post.title}</h1>
-      <div className="singlePostIcon">
-        <div className="singlePostEdit">
-        <i class="fa-solid fa-trash-can"></i>
-        <i class="fa-solid fa-pen-to-square"></i>
+        <div className="singlePostWrapper">
+          <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt=""
+          className="singlePostImg" />
+          <h1 className="singlePostTitle">
+            {post.title}
+            <div className="singlePostEdit">
+              <i className="singlePostIcon fa-solid fa-pen-to-square"></i>
+              <i className="singlePostIcon fa-solid fa-trash-alt"></i>
+            </div>
+          </h1>
+          <div className="singlePostInfo">
+            <span className="singlePostAuthor">Author: <b>{post.userName}</b></span>
+            <span className="singlePostDate">Posted on: <b>{post.createdAt}</b></span>
+          </div>
+            <p className="singlePostDesc">{post.desc}</p>
         </div>
-      </div>
-      <p className="singlePostInfo">{post.userName}</p>
-      <p className="singlePostDesc">{post.desc}</p>
-    </div>
+    </div>      
   )
 }
 

@@ -15,15 +15,15 @@ function Posts() {
   }, [posts]);
 
   return (
-    <div className="posts">
+    <div className="Posts">
       {posts.map(post => (
-        <div className="postInfo" key={post._id}>
-          <span className="postTitle">{post.title}</span>
+        <div className="PostInfo" key={post._id}>
+          <span className="PostTitle">{post.title}</span>
           <img style={
             {
               width: "385px",
             }
-            } className="postImg" src={post.photo ? post.photo : "https://via.placeholder.com/150"} alt="" />
+            } className="PostImg" src={post.photo ? post.photo : "https://via.placeholder.com/150"} alt="" />
           <span style={
             {
               overflow: "hidden",
@@ -32,8 +32,8 @@ function Posts() {
               maxWidth: "300px",
               display: "inline-block"
             }
-          } className="postDesc">{post.desc}</span>
-          <span className="postAuthor">Writed by: {post.userName}</span>
+          } className="PostsDesc">{post.desc}</span>
+          <span className="PostAuthor">Writed by: {post.userName}</span>
           <p>
             {
               (post.categories) ? post.categories.map(category => (

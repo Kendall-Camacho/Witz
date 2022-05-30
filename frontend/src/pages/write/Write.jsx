@@ -94,7 +94,7 @@ export default function Write() {
           <div className="writeFormGroup">
             <textarea placeholder="What have to tell us..." type="text" className="writeInput writeText"
               onChange={(e) => setPost({ ...post, desc: e.target.value })}
-              required
+              required 
               value={post.desc}
             >
             </textarea>

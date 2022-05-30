@@ -9,4 +9,7 @@ router.get("/:id", getPostById);
 // create post
 router.post("/", createPost);
 
+// get date of the post
+
+
 module.exports = router;

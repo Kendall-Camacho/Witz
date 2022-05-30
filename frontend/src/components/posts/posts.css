@@ -1,11 +1,11 @@
-.postImg {
+.PostImg {
   width: 95%;
   height: 280px;
   object-fit: cover;
   border-radius: 15px;
 }
 
-.posts {
+.Posts {
   width: 385px;
   margin: 0px 25px 40px 25px;
   flex: 9;
@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.postInfo {
+.PostInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@
   
 }
 
-.postAuthor {
+.PostAuthor {
   font-size: 18px;
   font-family: 'Varela Round', sans-serif;
   color: #b39656;
@@ -32,7 +32,7 @@
   text-align: left;
 }
 
-.postTitle {
+.PostTitle {
   font-family: Josefin Sans, sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -40,7 +40,7 @@
   margin-top: 10px;
 }
 
-.postDesc {
+.PostsDesc {
   font-family: "Varela Round", sans-serif;
   font-size: 14px;
   color: #444;

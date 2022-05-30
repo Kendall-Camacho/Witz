@@ -1,16 +1,24 @@
-import "./login.css";
-import TopBar from "../../components/topbar/TopBar";
-import Register from "../register/Register";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import Button from "../../components/Button/Button";
+import Register from "../register/Register";
+import "./login.css";
 
 export default function Login() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(userName, password);
+  }
+
+  console.log(userName, password);
   return (
     <>
-      <TopBar />
       <div className="Login">
         <span className="loginTitle">Login</span>
-        <form className="loginForm">
+        <form className="loginForm" onSubmit={handleSubmit}>
           <label>Email</label>
           <input type="text" className="loginInput" placeholder="Please, enter your email" />
           <label>Password</label>

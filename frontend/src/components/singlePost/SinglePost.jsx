@@ -25,6 +25,7 @@ function SinglePost() {
   }
 
   const editPost = () => navigate(`/edit/${id}`); // work in progress
+  if (post.desc) post.desc = post.desc.split("\n").map((item) => item);
 
   return (
     <div className="singlePost">
@@ -45,7 +46,7 @@ function SinglePost() {
               >
               </i>
             </div>
-          </h1>
+          </h1> 
           <div className="singlePostInfo">
             <span className="singlePostAuthor">Author: <b>{post.userName}</b></span>
             <span className="singlePostDate">Posted on: <b>{post.createdAt}</b></span>

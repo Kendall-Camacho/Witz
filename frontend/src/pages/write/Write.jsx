@@ -33,22 +33,17 @@ export default function Write() {
     <>
       <div className="write">
         {
-          // estile bien esto XDD
+          // estile bien esto XD
           (post.title && post.desc && post.photo && post.createdAt && post.userName && post.categories) ?
             (
               <>
                 <div className="writePost">
-                  <h1>{post.title}</h1>
-                  <p>{post.desc}</p>
-                  <img src={URL.createObjectURL(post.photo)} alt="post-image" />
-                  <p>{post.createdAt}</p>
-                  <p>{post.userName}</p>
-                  <p>{post.categories}</p>
+                  <img className='writePostImg' src={URL.createObjectURL(post.photo)} alt="post-image" />
                 </div>
               </>
             ) : (
               <>
-                <div className="writeForm">
+                <div className="writeFormDiv">
                 </div>
               </>
             )
@@ -58,8 +53,8 @@ export default function Write() {
             {
               (!post.photo) ? (
                 <>
-                  <label htmlFor="fileInput">
-                    <i className="writeIcon fa-solid fa-plus"></i>
+                  <label className='labelInput' htmlFor="fileInput">
+                  <i className="writeIcon fa-solid fa-plus"></i>
                   </label>
                   <input type="file" id="fileInput" style={{ display: "none" }}
                     onChange={(e) => setPost({ ...post, photo: e.target.files[0] })}
@@ -68,19 +63,18 @@ export default function Write() {
                   />
                 </>
               ) : (
-                <>
+                <> 
                   <div className='addSuccesFull'>
                   </div>
-                  <img className="writeImg" src={URL.createObjectURL(post.photo)} alt="" />
                 </>
               )
             }
-            <input type="text" placeholder="Title" className="writeInput" autoFocus={true}
+            <input type="text" placeholder="Title" className="writeInputTitle" autoFocus={true}
               onChange={(e) => setPost({ ...post, title: e.target.value })}
               required
               value={post.title}
             />
-            <input type="text" placeholder="Author" className="writeInput"
+            <input type="text" placeholder="Author" className="writeInputAuthor"
               onChange={(e) => setPost({ ...post, userName: e.target.value })}
               required
               value={post.userName}
@@ -88,7 +82,7 @@ export default function Write() {
           </div>
 
           <div className="writeFormGroup">
-            <textarea placeholder="What have to tell us..." type="text" className="writeInput writeText"
+            <textarea cols={'80'} rows={'10'}  placeholder="What have to tell us..." type="text" className="writeInputDesc"
               onChange={(e) => setPost({ ...post, desc: e.target.value })}
               required
               value={post.desc}

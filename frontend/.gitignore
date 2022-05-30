@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# delete the node modules from the backend folder
+./backend/node_modules

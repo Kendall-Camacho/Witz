@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./write.css";
 
+/* A function that is exporting a component. */
 export default function Write() {
-  const [post, setPost] = useState({
+  const [post, setPost] = useState({ 
     title: "",
     desc: "",
     photo: "",
     userName: "",
     categories: ["IT"],
+    /* Getting the current date and time and converting it to a string. */
     createdAt: new Date().toISOString().slice(0, 10)
   });
   const navegation = useNavigate();
@@ -80,9 +82,9 @@ export default function Write() {
               value={post.userName}
             />
           </div>
-
           <div className="writeFormGroup">
             <textarea cols={'80'} rows={'10'}  placeholder="What have to tell us..." type="text" className="writeInputDesc"
+             /* A function that is being called when the input changes. */
               onChange={(e) => setPost({ ...post, desc: e.target.value })}
               required
               value={post.desc}

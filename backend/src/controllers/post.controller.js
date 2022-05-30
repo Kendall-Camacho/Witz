@@ -1,3 +1,4 @@
+/* Importing the Post model from the models folder.*/
 const Post = require("../models/Post.model");
 
 // GET ALL POSTS
@@ -32,6 +33,7 @@ async function createPost(req, res) {
     createdAt: req.body.createdAt
   });
   try {
+    /* Saving the post to the database. (async function) */
     const savedPost = await post.save();
     res.json({
       message: "Post created successfully",

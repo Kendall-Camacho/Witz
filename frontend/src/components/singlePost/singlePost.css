@@ -21,7 +21,7 @@
   text-align: center;
   margin: 1rem;
   font-family: 'Lora', serif;
-  font-size: 28px;
+  font-size: 33px;
 }
 
 .singlePostEdit {
@@ -46,7 +46,7 @@
   margin-bottom: 1.20rem;
   display: flex;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Varela Round', sans-serif;
   color: #b39656;
   margin-left: 15px;
@@ -54,16 +54,17 @@
 }
 
 .singlePostDesc {
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Varela Round', sans-serif;
   color: darkslategrey;
   margin-left: 15px;
   margin-right: 15px;
+  line-height: 30px;
 }
 
 .singlePostDesc::first-letter {
   margin-left: 20px;
-  font-size: 25px;
+  font-size: 30px;
   min-width: 600px;
   font-weight: 600;
 }

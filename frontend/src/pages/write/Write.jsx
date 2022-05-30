@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./write.css";
 
@@ -11,31 +12,28 @@ export default function Write() {
     categories: ["IT"],
     createdAt: new Date().toISOString().slice(0, 10)
   });
-  
+  const navegation = useNavigate();
+
   const sendPost = async (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/api/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: post.title,
-        desc: post.desc,
-        photo: new FormData(e.target).get("photo"),
-        userName: post.userName,
-        categories: post.categories,
-        createdAt: post.createdAt
-      })
-    }).then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
+    const res = await axios.post("http://localhost:3001/api/posts", post);
+    alert(res.data.message);
+    setPost({
+      title: "",
+      desc: "",
+      photo: "",
+      userName: "",
+      categories: ["IT"],
+      createdAt: new Date().toISOString().slice(0, 10)
+    });
+    navegation("/");
   };
 
   return (
     <>
       <div className="write">
         {
+          // estile bien esto XDD
           (post.title && post.desc && post.photo && post.createdAt && post.userName && post.categories) ?
             (
               <>
@@ -55,9 +53,7 @@ export default function Write() {
               </>
             )
         }
-        <form className="writeForm" 
-          onSubmit={sendPost}
-        >
+        <form className="writeForm" onSubmit={sendPost} >
           <div className="writeFormGroup">
             {
               (!post.photo) ? (
@@ -65,8 +61,8 @@ export default function Write() {
                   <label htmlFor="fileInput">
                     <i className="writeIcon fa-solid fa-plus"></i>
                   </label>
-                  <input type="file" id="fileInput" style={{ display: "none" }} 
-                    onChange={(e) => setPost({ ...post, photo: e.target.files[0] })} 
+                  <input type="file" id="fileInput" style={{ display: "none" }}
+                    onChange={(e) => setPost({ ...post, photo: e.target.files[0] })}
                     // required
                     value={post.photo}
                   />
@@ -79,7 +75,7 @@ export default function Write() {
                 </>
               )
             }
-            <input type="text" placeholder="Title" className="writeInput" autoFocus={true} 
+            <input type="text" placeholder="Title" className="writeInput" autoFocus={true}
               onChange={(e) => setPost({ ...post, title: e.target.value })}
               required
               value={post.title}
@@ -94,7 +90,7 @@ export default function Write() {
           <div className="writeFormGroup">
             <textarea placeholder="What have to tell us..." type="text" className="writeInput writeText"
               onChange={(e) => setPost({ ...post, desc: e.target.value })}
-              required 
+              required
               value={post.desc}
             >
             </textarea>

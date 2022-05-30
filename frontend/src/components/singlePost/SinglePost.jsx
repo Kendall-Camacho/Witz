@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import "./singlePost.css"
@@ -7,6 +7,7 @@ function SinglePost() {
 
   const { id } = useParams();
   const [post, setPost] = useState([])
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -18,6 +19,12 @@ function SinglePost() {
   
   if(post.createdAt) post.createdAt = post.createdAt.slice(0,10);
   
+  const deletePost = async () => {
+    await axios.delete(`http://localhost:3001/api/posts/${id}`);
+    navigate("/")
+  }
+
+  const editPost = () => navigate(`/edit/${id}`); // work in progress
 
   return (
     <div className="singlePost">
@@ -27,8 +34,16 @@ function SinglePost() {
           <h1 className="singlePostTitle">
             {post.title}
             <div className="singlePostEdit">
-              <i className="singlePostIcon fa-solid fa-pen-to-square"></i>
-              <i className="singlePostIcon fa-solid fa-trash-alt"></i>
+              <i 
+                className="singlePostIcon fa-solid fa-pen-to-square"
+                onClick={editPost}
+              >
+              </i>
+              <i 
+                className="singlePostIcon fa-solid fa-trash-alt"
+                onClick={deletePost}
+              >
+              </i>
             </div>
           </h1>
           <div className="singlePostInfo">

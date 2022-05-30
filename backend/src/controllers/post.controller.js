@@ -43,12 +43,25 @@ async function createPost(req, res) {
   }
 }
 
-// GET THE DATE OF THE POST
+// DELETE A POST
+async function deletePost(req, res) {
+  try {
+    const removedPost = await Post.remove({ _id: req.params.id });
+    res.json({
+      message: "Post deleted successfully",
+    });
+  } catch (error) {
+    res.json({
+      message: error,
+    });
+  }
+}
 
 
 
 module.exports = {
   getAllPosts,
   getPostById,
-  createPost
+  createPost,
+  deletePost,
 };

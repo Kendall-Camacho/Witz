@@ -1,10 +1,8 @@
-import SideBar from "../../components/sidebar/SideBar"
 import "./settings.css"
 
 function Settings() {
   return (
     <>
-      <TopBar />
       <div className="settings">
         <div className="settingsWrapper">
           <div className="settingsTitle">
@@ -30,7 +28,6 @@ function Settings() {
             <button className="settingsSubmit">Salvar</button>
           </form>
         </div>
-        <SideBar />
       </div>
     </>
   )

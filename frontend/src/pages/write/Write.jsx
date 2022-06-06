@@ -31,6 +31,22 @@ export default function Write() {
     navegation("/");
   };
 
+  const characterLimit = (e) => {
+    let value = e.target.value;
+    const regex = /^.{0,30}$/;
+    if (!regex.test(value)) {
+      e.target.value = value.slice(0, -1);
+    } else {
+      setPost({ ...post, [e.target.name]: value });
+    }
+  }
+
+  const dontPaste = (e) => {
+    if (e.clipboardData.getData("Text")) {
+      e.preventDefault();
+    }
+  }
+
   return (
     <>
       <div className="write">
@@ -72,12 +88,20 @@ export default function Write() {
               )
             }
             <input type="text" placeholder="Title" className="writeInputTitle" autoFocus={true}
-              onChange={(e) => setPost({ ...post, title: e.target.value })}
+              onChange={(e) => {
+                characterLimit(e)
+                setPost({ ...post, title: e.target.value })
+              }}
+              onPaste={(e) => dontPaste(e)}
               required
               value={post.title}
             />
             <input type="text" placeholder="Author" className="writeInputAuthor"
-              onChange={(e) => setPost({ ...post, userName: e.target.value })}
+              onChange={(e) => {
+                characterLimit(e)
+                setPost({ ...post, userName: e.target.value })
+              }}
+              onPaste={(e) => dontPaste(e)}
               required
               value={post.userName}
             />

@@ -48,7 +48,7 @@ async function createPost(req, res) {
 // DELETE A POST
 async function deletePost(req, res) {
   try {
-    const removedPost = await Post.remove({ _id: req.params.id });
+    const removedPost = await Post.deleteOne({ _id: req.params.id });
     res.json({
       message: "Post deleted successfully",
     });

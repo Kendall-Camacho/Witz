@@ -20,13 +20,9 @@ export default function TopBar() {
           <li className="topListItem">
             <Link to="/write" className="Link">Write</Link>
           </li>
-          <li className="topListItem">
-            <Link to="/single" className="Link">Single</Link>
-          </li>
-          
-          <li className="topListItem">
+          {/* <li className="topListItem">
             {user && "Logout"}
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="topRight">

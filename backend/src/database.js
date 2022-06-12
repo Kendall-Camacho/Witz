@@ -8,8 +8,7 @@ mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-  ./* a promise. It is a way to handle asynchronous code. */
-  then(() => console.log('MongoDB connected'))
+  .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
 module.exports = mongoose;

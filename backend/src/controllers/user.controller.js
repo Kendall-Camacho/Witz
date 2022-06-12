@@ -1,38 +1,41 @@
-const mongoose = require('mongoose');
+const User = require('../models/User.model');
 
-// GET USER BY ID
-async function getUserById(req, res) {
+// Register a new user
+async function registerUser (req, res) {
+  const { userName, email, password } = req.body;
+
+  // validar si el email ya existe
+  const user = await User.findOne({ email });
+  const name = await User.findOne({ userName });
+  
+  if (user || name) return res.status(400).json({ message: 'The email or username already exists' });
+
   try {
-    const user = await User.findById(req.params.id);
-    res.json(user);
+    const newUser = new User({
+      userName,
+      email,
+      password
+    });
+    await newUser.save();
+    res.status(201).json({ message: 'User created' });
   } catch (error) {
-    res.json({ message: error });
+    res.status(500).json({ message: 'Error registering user' });
   }
 }
 
-
-// CREATE USER
-async function createUser(req, res) {
-  const user = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    isAdmin: req.body.isAdmin
-  });
+// get all the users
+async function getAllUsers (req, res) {
   try {
-    const savedUser = await user.save();
-    res.json({
-      message: "User created successfully",
-    });
-  } catch (error) {
-    res.json({
-      message: error,
-    });
+    const users = await User.find();
+    res.status(200).json(users);
+  }
+  catch (error) {
+    res.status(500).json({ msg: 'Error', error });
+    console.log(error);
   }
 }
-
 
 module.exports = {
-  getUserById,
-  createUser
-};
+  registerUser,
+  getAllUsers
+}

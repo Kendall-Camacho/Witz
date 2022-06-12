@@ -4,21 +4,16 @@ import Button from "../../components/Button/Button";
 import "./login.css";
 
 const Login = () => {
-  
+
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(userName, email, password);
-  }
-  
+
   return (
     <>
       <div className="Login">
         <span className="loginTitle">Login</span>
-        <form className="loginForm" onSubmit={handleSubmit}>
+        <form className="loginForm">
           <label>User Name</label>
           <input
             type="text"

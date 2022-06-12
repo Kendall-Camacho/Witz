@@ -1,37 +1,62 @@
+import { useState } from 'react';
 import "./register.css";
-import Login from "../login/Login";
-import { Link } from "react-router-dom";
-import TopBar from "../../components/topbar/TopBar";
-import Button from "../../components/Button/Button";
 
 export default function Register() {
+
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const registerUser = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3001/api/users/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        userName,
+        email,
+        password
+      })
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
   return (
     <>
-      <TopBar />
       <div className="register">
         <span className="registerTitle">Register User</span>
-        <form className="registerForm">
-          <label>Type your username</label>
+        <form className="registerForm" onSubmit={registerUser}>
+          <label>Type your User Name</label>
           <input type="text"
             className="registerInput"
-            placeholder="Username..." />
+            placeholder="Username..." 
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            required
+          />
           <label>Email</label>
           <input type="text"
             className="registerInput"
-            placeholder="Enter your email Please..." />
+            placeholder="Enter your email Please..." 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
           <label>Password...</label>
           <input type="password"
             className="registerInput"
             placeholder="Type your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
-          <button className="loginRegisterButton">
-            <Link to="/login">Login</Link>
+          <button className="loginButton">
+            Register
           </button>
         </form>
-
-        <Button classCSS="loginButton">
-          <Link to="/">Register</Link>
-        </Button>
       </div>
     </>
   );

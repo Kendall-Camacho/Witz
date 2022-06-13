@@ -1,8 +1,35 @@
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./topbar.css";
-import { Link } from "react-router-dom";
+
 
 export default function TopBar() {
-  const user = true;
+
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  function parseJwt (token) {
+    let base64Url = token.split('.')[1];
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
+  useEffect(() => {
+    const getUser = async () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const user = parseJwt(token);
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    }
+    getUser();
+  }, [navigate, user]);
+  
   return (
     <div className='top'>
       <div className='topLeft'>
@@ -15,14 +42,11 @@ export default function TopBar() {
           </li>
           <li className="topListItem">
             {/* link to github profiles */}
-            <a href="https://github.com/Kendall-Camacho/Witz" className="Link">GitHub</a>
+            <a href="https://github.com/Kendall-Camacho/Witz" className="Link">Github</a>
           </li>
           <li className="topListItem">
             <Link to="/write" className="Link">Write</Link>
           </li>
-          {/* <li className="topListItem">
-            {user && "Logout"}
-          </li> */}
         </ul>
       </div>
       <div className="topRight">
@@ -31,7 +55,8 @@ export default function TopBar() {
             <img
               className="topImg"
               src="https://imgs.search.brave.com/8qeduie8cjVIqFjSVgVhwYL21bvuHVe89xGoSQrO4_s/rs:fit:542:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC54/by1CQ0MxWktGcExM/NjVEOTNlSGNnSGFH/ZSZwaWQ9QXBp"
-              alt="A profile image " />
+              alt="profile"
+            />
           ) : (
             <ul className="topList">
               <li className="topListItem">
@@ -44,7 +69,6 @@ export default function TopBar() {
           )
         }
         <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
-
       </div>
     </div>
   )

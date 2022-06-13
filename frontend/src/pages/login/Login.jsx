@@ -1,27 +1,41 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
 import "./login.css";
 
 const Login = () => {
 
-  const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const loginUser = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3001/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    });
+    const data = await response.json();
+    if (data.user) {
+      localStorage.setItem("token", data.user);
+      navigate("/");
+    } else {
+      alert("Please check your credentials");
+    }
+  }
 
   return (
     <>
       <div className="Login">
         <span className="loginTitle">Login</span>
-        <form className="loginForm">
-          <label>User Name</label>
-          <input
-            type="text"
-            className="loginInput"
-            placeholder="Enter your user name"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-          />
+        <form className="loginForm" onSubmit={loginUser}>
           <label>Email</label>
           <input 
             type="email"
@@ -38,9 +52,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button classCSS="loginButton">
-            <Link to="/">Login</Link>
-          </Button>
+          <button className="loginButton"> Login send </button>
         </form>
         <Button classCSS="Register">
           <Link to="/register">Register</Link>

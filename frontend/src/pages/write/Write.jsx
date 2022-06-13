@@ -9,12 +9,22 @@ export default function Write() {
     title: "",
     desc: "",
     photo: "",
-    userName: "",
+    userName: parseJwt(localStorage.getItem("token")).userName,
     categories: ["IT"],
     /* Getting the current date and time and converting it to a string. */
     createdAt: new Date().toISOString().slice(0, 10)
   });
   const navegation = useNavigate();
+
+  function parseJwt (token) {
+    let base64Url = token.split('.')[1];
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
 
   const sendPost = async (e) => {
     e.preventDefault();
@@ -24,7 +34,7 @@ export default function Write() {
       title: "",
       desc: "",
       photo: "",
-      userName: "",
+      userName: parseJwt(localStorage.getItem("token")).userName,
       categories: ["IT"],
       createdAt: new Date().toISOString().slice(0, 10)
     });
@@ -95,15 +105,6 @@ export default function Write() {
               onPaste={(e) => dontPaste(e)}
               required
               value={post.title}
-            />
-            <input type="text" placeholder="Author" className="writeInputAuthor"
-              onChange={(e) => {
-                characterLimit(e)
-                setPost({ ...post, userName: e.target.value })
-              }}
-              onPaste={(e) => dontPaste(e)}
-              required
-              value={post.userName}
             />
           </div>
           <div className="writeFormGroup">

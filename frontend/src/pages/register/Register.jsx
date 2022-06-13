@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./register.css";
 
 export default function Register() {
@@ -6,6 +7,7 @@ export default function Register() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   
   const registerUser = async (e) => {
     e.preventDefault();
@@ -21,7 +23,10 @@ export default function Register() {
       })
     });
     const data = await response.json();
-    console.log(data);
+    if (data.message === "User created") {
+      alert("User created");
+      navigate("/");
+    }
   }
 
   return (

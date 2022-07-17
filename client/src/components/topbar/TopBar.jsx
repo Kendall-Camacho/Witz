@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { parseJwt } from "../../helpers/parseJwt";
 import "./topbar.css";
 
 
@@ -8,15 +9,6 @@ export default function TopBar() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
-  function parseJwt (token) {
-    let base64Url = token.split('.')[1];
-    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    return JSON.parse(jsonPayload);
-  }
   useEffect(() => {
     const getUser = async () => {
       const token = localStorage.getItem("token");

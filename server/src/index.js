@@ -1,5 +1,5 @@
 /* Loading the environment variables from the .env file. */
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 const app = require('./app');
 require('./database');
 

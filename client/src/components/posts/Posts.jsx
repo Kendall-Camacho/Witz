@@ -54,7 +54,7 @@ function Posts() {
               ) : (
                 <img
                   style={{ width: "385px" }}
-                  src={"https://via.placeholder.com/150"}
+                  src="https://via.placeholder.com/150"
                   className="PostImg"
                   alt="post-image"
                 />

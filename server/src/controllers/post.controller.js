@@ -1,5 +1,7 @@
 /* Importing the Post model from the models folder.*/
 const Post = require("../models/Post.model");
+const uploadImage = require('../../libs/cloudinary');
+const fs = require('fs-extra');
 
 // GET ALL POSTS
 async function getAllPosts(req, res) {
@@ -24,24 +26,28 @@ async function getPostById(req, res) {
 
 // CREATE POST
 async function createPost(req, res) {
-  const post = new Post({
-    title: req.body.title,
-    desc: req.body.desc,
-    photo: req.body.photo,
-    userName: req.body.userName,
-    categories: req.body.categories,
-    createdAt: req.body.createdAt
-  });
   try {
-    /* Saving the post to the database. (async function) */
-    const savedPost = await post.save();
-    res.json({
-      message: "Post created successfully",
-    });
+    let { title, desc, photo, userName, categories, createdAt } = req.body;
+    if (req.files?.photo) {
+      const img = await uploadImage(req.files.photo.tempFilePath);
+      await fs.remove(req.files.photo.tempFilePath);
+      const post = new Post({
+        title,
+        desc,
+        photo: img.secure_url,
+        userName,
+        categories,
+        createdAt
+      });
+      await post.save();
+      res.json({
+        message: "Post created successfully"
+      });
+    }
   } catch (error) {
     res.json({
       message: error,
-    });
+    })
   }
 }
 

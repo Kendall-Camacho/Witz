@@ -44,16 +44,6 @@ async function loginUser (req, res) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
 // get all the users
 async function getAllUsers (req, res) {
   try {

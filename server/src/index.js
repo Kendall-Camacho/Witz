@@ -1,8 +1,5 @@
-/* Loading the environment variables from the .env file. */
-require('dotenv').config();
 const app = require('./app');
 require('./database');
-
 
 // config
 app.listen(app.get('port'), () => {

@@ -47,7 +47,7 @@ function Posts() {
               {post.photo ? (
                 <img
                   style={{ width: "385px" }}
-                  src={post.photo}
+                  src={post.photo.url}
                   className="PostImg"
                   alt="post-image"
                 />

@@ -1,5 +1,4 @@
 import "./single.css";
-// import Sidebar from "../../components/sidebar/SideBar";
 import SinglePost from "../../components/singlePost/SinglePost";
 
 export default function Single() {
@@ -7,7 +6,6 @@ export default function Single() {
     <>
       <div className="single">
         <SinglePost />
-        {/* <Sidebar /> */}
       </div>
     </>
   )

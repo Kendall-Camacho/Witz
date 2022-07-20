@@ -1,4 +1,5 @@
 const express = require('express');
+const { PORT } = require('./config');
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const app = express();
@@ -13,7 +14,7 @@ app.use(fileUpload({
 
 
 // config
-app.set('port', process.env.PORT || 3007);
+app.set('port', PORT);
 
 // routes
 app.use('/api/posts', require('./routes/post.routes'));

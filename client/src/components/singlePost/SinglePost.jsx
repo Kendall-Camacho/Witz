@@ -29,7 +29,7 @@ function SinglePost() {
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-        <img src={post.photo} alt="Post-Image" className="singlePostImg" />
+        <img src={post.photo?.url} alt="Post-Image" className="singlePostImg" />
         <h1 className="singlePostTitle">
           {post.title}
           <div className="singlePostEdit">

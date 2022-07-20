@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 /* Getting the MongoDB URI from the environment variables. */
-const MONGO_URI = process.env.MONGO_URI;
+const { MONGO_URI } = require('./config');
 
 /* Connecting to the MongoDB database. */
 mongoose.connect(MONGO_URI, {

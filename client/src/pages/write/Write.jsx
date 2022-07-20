@@ -18,7 +18,7 @@ export default function Write() {
   const sendPost = async (e) => {
     e.preventDefault();
     let formData = new FormData();
-    for(let key in post) {
+    for (let key in post) {
       formData.append(key, post[key]);
     }
     const res = await axios.post("http://localhost:3001/api/posts", formData, {
@@ -60,28 +60,14 @@ export default function Write() {
         <form className="writeForm" onSubmit={sendPost}>
           <div className="writeFormGroup">
             {!post.photo ? (
-              <>
-                <label className="labelInput" htmlFor="fileInput">
-                  <i className="writeIcon fa-solid fa-plus"></i>
-                </label>
-                <input
-                  type="file"
-                  id="fileInput"
-                  style={{ display: "none" }}
-                  onChange={(e) =>
-                    setPost({ ...post, photo: e.target.files[0] })
-                  }
-                  required
-                  value={post.photo}
-                />
-              </>
-            ) : (
-              <>
-                <div className="addSuccesFull"> 
-                  File added succesfully
-                </div>
-              </>
-            )}
+              <input
+                type="file"
+                id="fileInput"
+                onChange={(e) => setPost({ ...post, photo: e.target.files[0] })}
+                required
+                value={post.photo}
+              />
+            ) : "Photo added"}
             <input
               type="text"
               placeholder="Title"

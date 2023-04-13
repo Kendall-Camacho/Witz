@@ -1,122 +1,64 @@
+/* Estilos para el formulario de escritura */
 .write {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.writePost {
-  width: 100%;
-  height: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 20px;
+  width: 100%;
 }
 
 .writeForm {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100%;
+  max-width: 700px;
 }
 
 .writeFormGroup {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 15px;
+}
+
+.writeInputTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   width: 100%;
-  height: 100%;
 }
 
-.labelInput {
-  position: relative;
-  top: 180px;
+.writeInputDesc {
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color:white;
-  
-}
-
-
-.addSuccesFull {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-
-}
-
-.writeInputTitle{
-  text-align: center;
-  margin-left: 31px;
-  margin-bottom: 1rem;
-  font-family: 'Varela Round', sans-serif;
-  font-size: 28px;
-  width: 50%;
-
-
-}
-
-.writeInputAuthor {
-  text-align: center;
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-  font-size: 16px;
-  font-family: 'Varela Round', sans-serif;
-  color: #000;
-  margin-left: 31px;
-  width: 50%;
-}
-
-.writeInputDesc{
-  font-size: 16px;
-  font-family: 'Varela Round', sans-serif;
-  color: darkgray;
-  margin-left: 31px;
-  resize: none;
-  width: 50%;
-
-
+  resize: vertical;
 }
 
 .writeSubmit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 15%;
-  width: 10%;
-  margin-top: 40px;
-  margin-left: 45%;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #f2f2f2;
-  cursor: pointer;
-  border-radius: 10px;
-  min-width: 100px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
   border: none;
-  background-color: teal;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.writePostImg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  z-index: 999;
+.writeSubmit:hover {
+  background-color: #3e8e41;
+}
 
-
+@media (max-width: 767px) {
+  .writeInputTitle {
+    font-size: 20px;
+  }
+  
+  .writeInputDesc {
+    font-size: 16px;
+  }
 }

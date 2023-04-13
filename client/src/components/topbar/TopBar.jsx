@@ -6,6 +6,12 @@ import "./topbar.css";
 
 export default function TopBar() {
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
+
+
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
@@ -59,6 +65,10 @@ export default function TopBar() {
               </li>
             </ul>
           )
+        }
+        { user
+          ? <button className="logout" onClick={logout}>Logout</button>
+          : null
         }
         <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
       </div>

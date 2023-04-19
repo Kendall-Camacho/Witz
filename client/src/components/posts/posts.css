@@ -6,14 +6,21 @@
 }
 
 .Posts {
-  width: 385px;
+  width: 395px;
   margin: 0px 25px 40px 25px;
-  flex: 9;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+  color: #222;
 }
+
+
 
 .PostInfo {
   display: flex;
@@ -36,7 +43,7 @@
   font-size: 24px;
   font-weight: 700;
   color: #222;
-  margin-top: 10px;
+  margin-top: 10px;;
 }
 
 .PostsDesc {

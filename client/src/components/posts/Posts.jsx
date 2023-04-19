@@ -46,7 +46,7 @@ function Posts() {
               <span className="PostTitle">{post.title}</span>
               {post.photo ? (
                 <img
-                  style={{ width: "385px" }}
+                  style={{ width: "100%" }}
                   src={post.photo.url}
                   className="PostImg"
                   alt="post-image"

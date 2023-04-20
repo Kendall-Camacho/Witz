@@ -12,7 +12,7 @@ const Login = () => {
 
   const loginUser = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/api/users/login", {
+    const response = await fetch("https://witz-back.up.railway.app/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

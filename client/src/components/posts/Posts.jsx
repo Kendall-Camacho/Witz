@@ -9,7 +9,7 @@ function Posts() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const result = await axios.get("http://localhost:3001/api/posts");
+      const result = await axios.get("https://witz-back.up.railway.app/api/posts");
       if (result.data && result.data.length) {
         setPosts(result.data);
         setLoading(false);

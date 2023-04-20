@@ -11,7 +11,7 @@ function SinglePost() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(`http://localhost:3001/api/posts/${id}`);
+      const res = await axios.get(`https://witz-back.up.railway.app/api/posts/${id}`);
       setPost(res.data);
     }
     fetchData();
@@ -19,19 +19,19 @@ function SinglePost() {
 
   if (post.createdAt) post.createdAt = post.createdAt.slice(0, 10);
   const deletePost = async () => {
-    await axios.delete(`http://localhost:3001/api/posts/${id}`);
+    await axios.delete(`https://witz-back.up.railway.app/api/posts/${id}`);
     navigate("/");
   };
 
   // get the comments
-  useEffect(() => {
-    async function fetchData() {
-      const res = await axios.get(`http://localhost:3001/api/posts/comment/${id}`);
-      setComments(res.data.comments);
-    }
-    fetchData();
-    console.log(comments);
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const res = await axios.get(`http://localhost:3001/api/posts/comment/${id}`);
+  //     setComments(res.data.comments);
+  //   }
+  //   fetchData();
+  //   console.log(comments);
+  // }, []);
 
   return (
     <div className="singlePost">

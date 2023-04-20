@@ -41,16 +41,17 @@ export default function TopBar() {
       theme.add("dark");
       topbar.remove("light");
       topbar.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       theme.remove("dark");
       theme.add("light");
       topbar.remove("dark");
       topbar.add("light");
+      localStorage.setItem("theme", "light");
     }
-  };
+  }
 
-  const theme = document.querySelector("body").classList[0];
-  
+  const theme = localStorage.getItem("theme");
   return (
     <div className='top'>
       <div className='topLeft'>

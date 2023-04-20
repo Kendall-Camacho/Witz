@@ -7,6 +7,7 @@ function SinglePost() {
   const { id } = useParams();
   const [post, setPost] = useState([]);
   const navigate = useNavigate();
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -17,14 +18,21 @@ function SinglePost() {
   }, []);
 
   if (post.createdAt) post.createdAt = post.createdAt.slice(0, 10);
-
   const deletePost = async () => {
     await axios.delete(`http://localhost:3001/api/posts/${id}`);
     navigate("/");
   };
 
-  
-  
+  // get the comments
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get(`http://localhost:3001/api/posts/comment/${id}`);
+      setComments(res.data.comments);
+    }
+    fetchData();
+    console.log(comments);
+  }, []);
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
@@ -36,7 +44,7 @@ function SinglePost() {
               className="singlePostIcon fa-solid fa-trash-alt"
               onClick={deletePost}
             ></i>
-          </div> 
+          </div>
         </h1>
         <div className="singlePostInfo">
           <span className="singlePostAuthor">

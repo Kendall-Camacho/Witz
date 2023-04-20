@@ -36,7 +36,7 @@ function SinglePost() {
               className="singlePostIcon fa-solid fa-trash-alt"
               onClick={deletePost}
             ></i>
-          </div>
+          </div> 
         </h1>
         <div className="singlePostInfo">
           <span className="singlePostAuthor">

@@ -38,16 +38,19 @@ export default function Write() {
     navegation("/");
   };
 
-  const characterLimit = (e) => {
-    let value = e.target.value;
-    const regex = /^.{0,30}$/;
-    if (!regex.test(value)) {
-      e.target.value = value.slice(0, -1);
-      alert("Max 30 characters");
-    } else {
-      setPost({ ...post, [e.target.name]: value });
-    }
-  };
+  // const characterLimit = (e) => {
+  //   let value = e.target.value;
+  //   const regex = /^.{0,30}$/;
+  //   if (!regex.test(value)) {
+  //     e.target.value = value.slice(0, -1);
+  //     alert("Max 30 characters");
+  //   } else {
+  //     setPost({ ...post, [e.target.name]: value });
+  //   }
+  // };
+
+  // sorry law jajajaj pero ahora me doy cuenta que la funcion de arriba se podia 
+  // hacer mas facil con css, pero bueno, ya esta jajajaj
 
   const dontPaste = (e) => {
     if (e.clipboardData.getData("Text")) {
@@ -78,7 +81,7 @@ export default function Write() {
               autoFocus={true}
               name="title"
               value={post.title}
-              onChange={characterLimit}
+              onChange={(e) => setPost({ ...post, [e.target.name]: e.target.value })}
               onPaste={dontPaste}
             />
           </div>

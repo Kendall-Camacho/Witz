@@ -65,13 +65,6 @@ function Posts() {
                 />
               )}
               <span
-                style={{
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                  maxWidth: "300px",
-                  display: "inline-block",
-                }}
                 className="PostsDesc"
               >
                 {post.desc}
@@ -80,11 +73,11 @@ function Posts() {
               <span className="PostDate">
                 {slideDate(post.createdAt.slice(0, 10))}
               </span>
-              <p>
-                {post.categories
-                  ? post.categories.map((category) => <span>{category}</span>)
-                  : "No categories"}
-              </p>
+              {post.categories.map((category) => (
+                <span className="PostCategory" key={category}>
+                  {category}
+                </span>
+              ))}
               <Link className="linkToSingle" to={`/single/${post._id}`}>
                 Read more <i className="fas fa-angle-double-right"></i>
               </Link>

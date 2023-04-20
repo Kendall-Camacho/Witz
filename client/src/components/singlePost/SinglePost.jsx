@@ -23,8 +23,7 @@ function SinglePost() {
     navigate("/");
   };
 
-  const editPost = () => navigate(`/edit/${id}`); // work in progress
-  if (post.desc) post.desc = post.desc.split("\n").map((item) => item);
+  
   
   return (
     <div className="singlePost">
@@ -33,10 +32,6 @@ function SinglePost() {
         <h1 className="singlePostTitle">
           {post.title}
           <div className="singlePostEdit">
-            <i
-              className="singlePostIcon fa-solid fa-pen-to-square"
-              onClick={editPost}
-            ></i>
             <i
               className="singlePostIcon fa-solid fa-trash-alt"
               onClick={deletePost}

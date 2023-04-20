@@ -7,9 +7,8 @@ function Home() {
   return (
     <>
       <Header />
-      <div className="home" style={{ width: "100%" }}>
       <Posts />
-      </div>
+      <br />
     </>
   );
 };

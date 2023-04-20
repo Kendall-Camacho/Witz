@@ -20,6 +20,11 @@ function Posts() {
     fetchPosts();
   }, [posts]);
 
+  const slideDate = (date) => {
+    const dateArray = date.split("-");
+    return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+  };
+
   return (
     <div className="Posts">
       {loading ? (
@@ -72,6 +77,9 @@ function Posts() {
                 {post.desc}
               </span>
               <span className="PostAuthor">Writed by: {post.userName}</span>
+              <span className="PostDate">
+                {slideDate(post.createdAt.slice(0, 10))}
+              </span>
               <p>
                 {post.categories
                   ? post.categories.map((category) => <span>{category}</span>)

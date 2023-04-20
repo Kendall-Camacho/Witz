@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { parseJwt } from "../../utils/parseJwt";
+// import an image
+import logo from "../../../public/witzLogo.png";
 import "./topbar.css";
 
 
@@ -32,6 +34,8 @@ export default function TopBar() {
     <div className='top'>
       <div className='topLeft'>
         <Link to='/'><h1>WITZ</h1></Link>
+        {/* put the logo */}
+        <img src={logo} alt="logo" className="topIcon" />
       </div>
       <div className="topcenter">
         <ul className="topList">
@@ -45,6 +49,13 @@ export default function TopBar() {
           <li className="topListItem">
             <Link to="/write" className="Link">Write</Link>
           </li>
+        { user
+          ? (
+            <li className="topListItem" onClick={logout}>
+              <Link to="/" className="Link">Logout</Link>
+            </li>
+          ) : null
+        }
         </ul>
       </div>
       <div className="topRight">
@@ -52,7 +63,7 @@ export default function TopBar() {
           user ? (
             <img
               className="topImg"
-              src="https://imgs.search.brave.com/8qeduie8cjVIqFjSVgVhwYL21bvuHVe89xGoSQrO4_s/rs:fit:542:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC54/by1CQ0MxWktGcExM/NjVEOTNlSGNnSGFH/ZSZwaWQ9QXBp"
+              src="https://picsum.photos/200/300"
               alt="profile"
             />
           ) : (
@@ -65,10 +76,6 @@ export default function TopBar() {
               </li>
             </ul>
           )
-        }
-        { user
-          ? <button className="logout" onClick={logout}>Logout</button>
-          : null
         }
         <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
       </div>

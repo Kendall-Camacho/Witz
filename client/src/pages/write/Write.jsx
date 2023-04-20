@@ -43,6 +43,7 @@ export default function Write() {
     const regex = /^.{0,30}$/;
     if (!regex.test(value)) {
       e.target.value = value.slice(0, -1);
+      alert("Max 30 characters");
     } else {
       setPost({ ...post, [e.target.name]: value });
     }
@@ -55,48 +56,46 @@ export default function Write() {
   };
 
   return (
-    <>
       <div className="write">
+        {post.photo && (
+          <img className='writeImg' src={URL.createObjectURL(post.photo)} alt='' />
+        )}
         <form className="writeForm" onSubmit={sendPost}>
           <div className="writeFormGroup">
-            {!post.photo ? (
-              <input
-                type="file"
-                id="fileInput"
-                onChange={(e) => setPost({ ...post, photo: e.target.files[0] })}
-                required
-                value={post.photo}
-              />
-            ) : "Photo added"}
+            <label htmlFor="fileInput">
+              <i className="writeIcon fas fa-plus"></i>
+            </label>
+            <input
+              type="file"
+              id="fileInput"
+              style={{ display: "none" }}
+              onChange={(e) => setPost({ ...post, photo: e.target.files[0] })}
+            />
             <input
               type="text"
               placeholder="Title"
-              className="writeInputTitle"
+              className="writeInput"
               autoFocus={true}
-              onChange={(e) => {
-                characterLimit(e);
-                setPost({ ...post, title: e.target.value });
-              }}
-              onPaste={(e) => dontPaste(e)}
-              required
+              name="title"
               value={post.title}
+              onChange={characterLimit}
+              onPaste={dontPaste}
             />
           </div>
           <div className="writeFormGroup">
             <textarea
-              cols={"80"}
-              rows={"10"}
-              placeholder="What have to tell us..."
+              placeholder="Tell your story..."
               type="text"
-              className="writeInputDesc"
-              onChange={(e) => setPost({ ...post, desc: e.target.value })}
-              required
+              className="writeInput writeText"
+              name="desc"
               value={post.desc}
+              onChange={(e) => setPost({ ...post, [e.target.name]: e.target.value })}
             ></textarea>
           </div>
-          <button className="writeSubmit">Submit</button>
+          <button className="writeSubmit" type="submit">
+            Publish
+          </button>
         </form>
       </div>
-    </>
   );
-}
+} 

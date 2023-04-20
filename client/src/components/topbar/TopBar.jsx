@@ -52,6 +52,7 @@ export default function TopBar() {
   }
 
   const theme = localStorage.getItem("theme");
+  
   return (
     <div className='top'>
       <div className='topLeft'>

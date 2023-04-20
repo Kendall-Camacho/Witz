@@ -2,7 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { parseJwt } from "../../utils/parseJwt";
 // import an image
-import logo from "../../../public/witzLogo.png";
+import logo from "../../assets/witz.png";
+import logowhite from "../../assets/witzwhite.png";
+
 import "./topbar.css";
 
 
@@ -29,13 +31,33 @@ export default function TopBar() {
     }
     getUser();
   }, [navigate, user]);
+
+  const themeToggle = () => {
+    // set theme light by default
+    const theme = document.querySelector("body").classList;
+    const topbar = document.querySelector(".top").classList;
+    if (theme.contains("light")) {
+      theme.remove("light");
+      theme.add("dark");
+      topbar.remove("light");
+      topbar.add("dark");
+    } else {
+      theme.remove("dark");
+      theme.add("light");
+      topbar.remove("dark");
+      topbar.add("light");
+    }
+  };
+
+  const theme = document.querySelector("body").classList[0];
   
   return (
     <div className='top'>
       <div className='topLeft'>
-        <Link to='/'><h1>WITZ</h1></Link>
-        {/* put the logo */}
-        <img src={logo} alt="logo" className="topIcon" />
+        <Link to='/'>
+          {theme === "dark" ? (
+            <img src={logowhite} alt='logo' className='topIcon' /> ) : (<img src={logo} alt='logo' className='topIcon' />)}
+        </Link>
       </div>
       <div className="topcenter">
         <ul className="topList">
@@ -62,11 +84,11 @@ export default function TopBar() {
         {
           user ? (
             <img
-              className="topImg"
-              src="https://picsum.photos/200/300"
-              alt="profile"
+            className="topImg"
+            src="https://picsum.photos/200/300"
+            alt="profile"
             />
-          ) : (
+            ) : (
             <ul className="topList">
               <li className="topListItem">
                 <Link to="/login" className="Link">Login</Link>
@@ -77,6 +99,7 @@ export default function TopBar() {
             </ul>
           )
         }
+        <i className="topIconMoon fa-solid fa-moon" onClick={themeToggle}></i>
         <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
       </div>
     </div>

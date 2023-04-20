@@ -52,11 +52,13 @@ export default function Write() {
   // sorry law jajajaj pero ahora me doy cuenta que la funcion de arriba se podia 
   // hacer mas facil con css, pero bueno, ya esta jajajaj
 
-  const dontPaste = (e) => {
-    if (e.clipboardData.getData("Text")) {
-      e.preventDefault();
-    }
-  };
+  // const dontPaste = (e) => {
+  //   if (e.clipboardData.getData("Text")) {
+  //     e.preventDefault();
+  //   }
+  // };
+
+  // De nuevo sorry pero tenia que copiar por pereza de escribir entonces quite la funcion de arriba
 
   return (
       <div className="write">
@@ -82,7 +84,6 @@ export default function Write() {
               name="title"
               value={post.title}
               onChange={(e) => setPost({ ...post, [e.target.name]: e.target.value })}
-              onPaste={dontPaste}
             />
           </div>
           <div className="writeFormGroup">

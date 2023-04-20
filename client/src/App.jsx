@@ -4,6 +4,8 @@ import Write from "./pages/write/Write";
 import Register from "./pages/register/Register";
 import Single from "./pages/single/Single";
 import TopBar from "./components/topbar/TopBar";
+import "./index.css";
+
 import { 
   BrowserRouter, 
   Routes, 

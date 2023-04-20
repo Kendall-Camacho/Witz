@@ -1,3 +1,16 @@
+/* set variables */
+root {
+  --main-color: #b39656;
+  --main-color-light: #f5f5f5;
+  --main-color-dark: #222;
+  --main-color-dark-light: #444;
+  --main-color-dark-lighter: #666;
+  --main-color-dark-lightest: #888;
+  --main-color-dark-lightestest: #aaa;
+  --main-color-dark-lightestestest: #ccc;
+  --main-color-dark-lightestestestest: #eee;
+}
+
 .PostImg {
   width: 95%;
   height: 280px;
@@ -15,7 +28,18 @@
   margin: 0 auto;
   max-width: 1200px;
   padding: 0 1rem;
-  
+}
+
+.PostInfo:hover {
+  transform: scale(1.04);
+  transition: all 0.6s ease-in-out;
+
+  & .PostTitle {
+    overflow: visible;
+    text-overflow: break-word;
+    white-space: normal;
+    max-width: 90%;
+  }
 }
 
 .PostInfo {
@@ -28,7 +52,7 @@
 .PostAuthor {
   font-size: 18px;
   font-family: "Varela Round", sans-serif;
-  color: #b39656;
+  color : var(--main-color-dark-lightestestestestest);
   margin-bottom: 10px;
   margin-top: 10px;
   text-align: left;
@@ -38,7 +62,7 @@
   font-family: Josefin Sans, sans-serif;
   font-size: 24px;
   font-weight: 700;
-  color: #222;
+  color: var(--main-color-dark);
   margin-top: 10px;;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,7 +73,7 @@
 .PostsDesc {
   font-family: "Varela Round", sans-serif;
   font-size: 14px;
-  color: #444;
+  color: var(--main-color-dark-lightestestestestestest);
   line-height: 24px;
   margin-top: 10px;
   overflow: hidden;
@@ -60,15 +84,14 @@
 
 .linkToSingle {
   margin: 0;
-  color: #222;
-  text-decoration: none;
+  color: var(--main-color-dark);
   cursor: pointer;
 }
 
 .PostDate {
   font-family: "Varela Round", sans-serif;
   font-size: 14px;
-  color: #444;
+  color: var(--main-color-dark-lightestestestestestest);
   margin-top: 10px;
 }
 

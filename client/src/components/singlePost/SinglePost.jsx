@@ -46,7 +46,7 @@ function SinglePost() {
             Posted on: <b>{post.createdAt}</b>
           </span>
         </div>
-        <p className="singlePostDesc">{post.desc}</p>
+        <pre className="singlePostDesc">{post.desc}</pre>
       </div>
     </div>
   );

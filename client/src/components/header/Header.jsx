@@ -1,4 +1,5 @@
 import "./header.css";
+import img from "../../assets/80.jpg";
 
 export default function Header() {
   return (
@@ -9,7 +10,7 @@ export default function Header() {
       </div>
       <img
         className="headerImg"
-        src="https://images.pexels.com/photos/3608056/pexels-photo-3608056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+        src={ img } alt="" />
     </div>
   )
 }

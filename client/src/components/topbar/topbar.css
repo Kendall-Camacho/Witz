@@ -15,11 +15,12 @@ root {
   height: 60px;
   position: sticky;
   top: 0;
-  display: flex;
-  align-items: center;
   font-family: "Josefin Sans", sans-serif;
   z-index: 999;
   background-color: var(--main-color-light);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 .top.dark {
@@ -57,11 +58,11 @@ root {
 }
 
 .topIcon {
-  font-size: 28px;
   width: 230px;
   height: 120px;
-  margin-right: 10px;
   cursor: pointer;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .topcenter {
@@ -104,4 +105,46 @@ root {
 .Link:hover {
   text-decoration: underline;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 730px) {
+  .top {
+    height: 50px;
+  }
+  .topIcon {
+    width: 150px;
+    height: 80px;
+  }
+  .topIconMoon {
+    font-size: 20px;
+    width: 60px;
+    height: 50px;
+  }
+  .topListItem {
+    font-size: 20px;
+  }
+  .topSearchIcon {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .top {
+    height: 40px;
+  }
+  .topIcon {
+    width: 100px;
+    height: 50px;
+  }
+  .topIconMoon {
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+  }
+  .topListItem {
+    font-size: 16px;
+  }
+  .topSearchIcon {
+    font-size: 14px;
+  }
 }

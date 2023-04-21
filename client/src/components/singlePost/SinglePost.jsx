@@ -19,9 +19,13 @@ function SinglePost() {
   }, []);
 
   if (post.createdAt) post.createdAt = post.createdAt.slice(0, 10);
-  const token = localStorage.getItem("token");
-  const decoded = jwt_decode(token);
-  const isOwner = decoded.userName === post.userName;
+  try {
+    var token = localStorage.getItem("token");
+    var decoded = jwt_decode(token);
+  } catch (error) {
+    console.log(error);
+  }
+  const isOwner = decoded?.userName === post.userName;
 
   const deletePost = async () => {
     await axios.delete(`https://witz-back.up.railway.app/api/posts/${id}`);

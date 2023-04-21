@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import jwt_decode from "jwt-decode";
 import axios from "axios";
 import "./singlePost.css";
 
@@ -18,6 +19,10 @@ function SinglePost() {
   }, []);
 
   if (post.createdAt) post.createdAt = post.createdAt.slice(0, 10);
+  const token = localStorage.getItem("token");
+  const decoded = jwt_decode(token);
+  const isOwner = decoded.userName === post.userName;
+
   const deletePost = async () => {
     await axios.delete(`https://witz-back.up.railway.app/api/posts/${id}`);
     navigate("/");
@@ -42,6 +47,8 @@ function SinglePost() {
           <div className="singlePostEdit">
             <i
               className="singlePostIcon fa-solid fa-trash-alt"
+              // check if the user is the owner of the post
+              style={{ display: isOwner ? "block" : "none" }}
               onClick={deletePost}
             ></i>
           </div>

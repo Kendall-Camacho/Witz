@@ -21,7 +21,7 @@ export default function Write() {
     for (let key in post) {
       formData.append(key, post[key]);
     }
-    const res = await axios.post("https://witz-back.up.railway.app/api/posts", formData, {
+    const res = await axios.post("http://localhost:3001/api/posts", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

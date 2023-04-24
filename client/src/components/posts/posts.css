@@ -33,7 +33,6 @@ root {
 .PostInfo:hover {
   transform: scale(1.04);
   transition: all 0.6s ease-in-out;
-
   & .PostTitle {
     overflow: visible;
     text-overflow: break-word;

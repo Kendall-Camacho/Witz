@@ -9,7 +9,7 @@ function Posts() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const result = await axios.get("https://witz-back.up.railway.app/api/posts");
+      const result = await axios.get("http://localhost:3001/api/posts");
       if (result.data && result.data.length) {
         setPosts(result.data);
         setLoading(false);
@@ -47,6 +47,7 @@ function Posts() {
       ) : (
         <>
           {posts.map((post) => (
+        <Link className="linkToSingle" to={`/single/${post._id}`}>
             <div className="PostInfo" key={post._id}>
               <span className="PostTitle">{post.title}</span>
               {post.photo ? (
@@ -78,10 +79,8 @@ function Posts() {
                   {category}
                 </span>
               ))}
-              <Link className="linkToSingle" to={`/single/${post._id}`}>
-                Read more <i className="fas fa-angle-double-right"></i>
-              </Link>
             </div>
+              </Link>
           ))}
         </>
       )}

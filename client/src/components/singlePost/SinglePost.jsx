@@ -12,7 +12,7 @@ function SinglePost() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(`https://witz-back.up.railway.app/api/posts/${id}`);
+      const res = await axios.get(`http://localhost:3001/api/posts/${id}`);
       setPost(res.data);
     }
     fetchData();
@@ -28,7 +28,7 @@ function SinglePost() {
   const isOwner = decoded?.userName === post.userName;
 
   const deletePost = async () => {
-    await axios.delete(`https://witz-back.up.railway.app/api/posts/${id}`);
+    await axios.delete(`http://localhost:3001/api/posts/${id}`);
     navigate("/");
   };
 

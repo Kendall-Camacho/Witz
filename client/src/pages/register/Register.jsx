@@ -11,7 +11,7 @@ export default function Register() {
   
   const registerUser = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://witz-back.up.railway.app/api/users/register", {
+    const response = await fetch("http://localhost:3001/api/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
